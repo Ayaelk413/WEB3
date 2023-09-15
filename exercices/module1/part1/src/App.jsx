@@ -1,18 +1,9 @@
-const Hello = () => {
-  return (
-    <div>
-      <p>Hello world</p>
-    </div>
-  )
-}
-
 const App = () => {
+  const friends = [ 'Peter', 'Maya']
+
   return (
     <div>
-      <h1>Greetings</h1>
-      <Hello />
-      <Hello />
-      <Hello />
+      <p>{friends}</p>
     </div>
   )
 }
