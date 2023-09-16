@@ -1,0 +1,21 @@
+/*Ajoutez un fichier App.css dans le dossier du composant
+ App avec des règles valables pour ce composant uniquement*/
+/*body {
+    margin: 5;
+    font-family: -apple-system, BlinkMacSystemFont, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: Arial;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  */ 
+
+
+  /*si il y a 2 fichier css comme ici il y a le index.css et l'app.css,
+  le css qui sera toujours afficher est celui de l'index.css 
+  Mais dans le cas contraire si il n' ya qu'un css alors il ira le voir lui donc ici si il n yavais pas de index.css, 
+  ça serai le css de l'app.css qui sera afficher dans l'application*/
