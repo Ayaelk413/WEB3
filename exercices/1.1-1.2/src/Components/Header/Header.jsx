@@ -1,8 +1,11 @@
 import React from 'react';
-import vinci from "../Header/logo.svg";
+import vinci from "../Header/LOGO HE VINCI.png";
 
 const Header = ({course}) => {
-  return (<div><h1>{course}</h1><img src = {vinci} alt = "logo vinci"/></div>)
+  return (<div>
+    <img src = {vinci} alt = "logo vinci"/>
+    <h1>{course}</h1>
+    </div>)
 }
 
 export default Header;
