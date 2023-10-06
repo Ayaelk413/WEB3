@@ -2,10 +2,11 @@
 import { useState } from 'react'
 import Display from '../Display/Display'
 import Button from '../Button/Button'
+import useLocalStorage from "../../hooks/useLocalStorage.js";
 
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useLocalStorage("counter", 0)
 
   console.log('rendering with counter value', counter)
 
