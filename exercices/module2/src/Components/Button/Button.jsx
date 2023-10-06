@@ -1,6 +1,16 @@
-const Button = ({ handleClick, text }) => 
-<button
- onClick={handleClick}>{text}
-</button>
+import React from 'react';
 
-export default Button
+const Button = ({ changeCount, text, delta }) => {
+  const handleClick = (e) => {
+    const parsedDelta = parseInt(e.target.dataset.delta, 10);
+    changeCount(parsedDelta);
+  };
+
+  return (
+    <button 
+    onClick={handleClick} data-delta={delta}>{text}
+    </button>
+  );
+};
+
+export default Button;
