@@ -1,68 +1,48 @@
-
-import { useState } from 'react'
-//import useLocalStorage from '../../hooks/useLocalStorage'
-import Button from '../Button/Button'
-import Display from '../Display/Display'
-
-
-const Stat = (props) => {
-  if (props.allClicks.length === 0) {
-    return (
-      <div>
-        the app is used by pressing the buttons
-      </div>
-    )
-  }
-  return (
-    <div>
-     {props.allClicks.join(' ')}
-    </div>
-  )
-}
+import React, { useState } from 'react';
 
 const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
-  const [totalGood, setTotalGood] = useState(0)
-  const [totalNeutral, setTotalNeutral] = useState(0)
-  const [totalBad, setTotalBad] = useState(0)
+  // Calculate the total number of collected feedback
+  const totalFeedback = good + neutral + bad;
+
+  // Calculate the average score
+  const averageScore = (good - bad) / totalFeedback || 0; // Handle division by zero
+
+  // Calculate the percentage of positive feedback
+  const positiveFeedbackPercentage = (good / totalFeedback) * 100 || 0; // Handle division by zero
 
   const goodClick = () => {
-    const updateGood = good + 1
-    setGood(updateGood)
-    setTotalGood(updateGood + good)
-  }
+    setGood(good + 1);
+  };
 
   const neutralClick = () => {
-    const updateNeutral = neutral + 1
-    setNeutral(updateNeutral)
-    setTotalNeutral(updateNeutral+neutral)  
-  }
+    setNeutral(neutral + 1);
+  };
 
   const badClick = () => {
-    const updateBad = bad + 1
-    setBad(updateBad)
-    setTotalBad(updateBad + bad)  
-  }
-
-
+    setBad(bad + 1);
+  };
 
   return (
     <div>
-    
-    <p><h1>Give feedback</h1></p>
-    <button onClick={goodClick}>good </button>
-    <button onClick={neutralClick}>neutral </button>
-    <button onClick={badClick}>bad </button>
+      <h1>Give feedback</h1>
+      <button onClick={goodClick}>good</button>
+      <button onClick={neutralClick}>neutral</button>
+      <button onClick={badClick}>bad</button>
 
-    <p><h1>Statistique</h1></p>
-     <p>good  {good}</p>
-     <p>neutral  {neutral}</p>
-     <p>bad  {bad}</p>
-  </div>
-  )
-}
+      <h1>Statistics</h1>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+
+      <p>all: {totalFeedback}</p>
+      <p>Average Score: {averageScore.toFixed(2)}</p>
+      <p>Positive Feedback Percentage: {positiveFeedbackPercentage.toFixed(2)}%</p>
+    </div>
+  );
+};
 
 export default App;
